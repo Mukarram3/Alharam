@@ -10,7 +10,7 @@ class finance extends Model
     use HasFactory;
 
     protected $table='finances';
-    protected $fillable=['id','planId','title','description'];
+    protected $fillable=['id','planId','title','description','tenure_year','total_amount','installments','instal_duration','mobile','notes','username'];
     public function hasplan(){
         return $this->belongsTo(Plan::class,'planId');
     }
