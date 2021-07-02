@@ -90,28 +90,42 @@ The above copyright notice and this permission notice shall be included in all c
                   </span>
           </div>
 
+          <div class="form-group">
+            <input type="number" name="tenure_year" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="tenure_year">
+            <span class="text-danger" id="tenure_year">
 
-          <div class="col-md-9">
-            <div class="">
-              <label for="">Add Advantages</label>
-              <div id="another-participant1">
-                <input style="    margin-top: 15px;
-                width: 70%;" type="text" name="advantage[]" class="form-controlx" placeholder=""/>
-                
-              </div>
-             <button class="btn-primary btn btn-md" style="    margin-top: 20px;
-             border: navajowhite;
-             border-radius: 6px;" type="button" id="add-participant1">+ Add more</button>
-            </div>
+              @error ('tenure_year'){{$message}} @enderror
+
+                  </span>
           </div>
 
-          <span class="text-danger" id="description">
+          <div class="form-group">
+            <input type="number" name="total_amount" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="total_amount">
+            <span class="text-danger" id="total_amount">
 
-            @error ('advantage[]'){{$message}} @enderror
+              @error ('total_amount'){{$message}} @enderror
 
-                </span>
-       
-          
+                  </span>
+          </div>
+
+          <div class="form-group">
+            <input type="number" name="installment" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="installment">
+            <span class="text-danger" id="installment">
+
+              @error ('installment'){{$message}} @enderror
+
+                  </span>
+          </div>
+
+          <div class="form-group">
+            <input type="number" name="instal_duration" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="instal_duration">
+            <span class="text-danger" id="instal_duration">
+
+              @error ('instal_duration'){{$message}} @enderror
+
+                  </span>
+          </div>
+
           <div class="mt-3">
             
             <button type="submit" class="btn btn-primary btn-sm font-weight-medium auth-form-btn">Add Finance</button>
@@ -161,10 +175,10 @@ The above copyright notice and this permission notice shall be included in all c
                           <th width="100px">Plan</th>
                           <th width="100px">Title</th>
                           <th width="50px">Description</th>
-                          <th width="100px">Advantages</th>
-                          
-                         
-                          
+                          <th width="100px">Tenure Years</th>
+                          <th width="100px">Total Amount</th>
+                          <th width="100px">No of Installment</th>
+                          <th width="100px">Installment Duration</th>
                           <th width="100px" style="text-align: center">Action</th>
                         </tr>
                       </thead>
@@ -179,36 +193,10 @@ The above copyright notice and this permission notice shall be included in all c
                           <td>{{$finances->hasplan->title}}</td>
                           <td>{{$finances->title}}</td>
                           <td>{{$finances->description}}</td>
-                          <td>
-
-                            <ul>
-
-                              @php
-                             if ($finances->advantage!=NULL) {
-
-                              $steps=json_decode($finances->advantage);
-                              
-                             }
-                               
-                             @endphp
-
-                              
-                             @foreach ($steps as $step)
-                                 
-                             
-                              <li>{{$step}}</li>
-                              
-
-                              @endforeach 
-
-
-                            </ul>
-                            
-                          </td>
-                          
-                         
-                          
-                          
+                          <td>{{$finances->tenure_year}}</td>
+                          <td>{{$finances->total_amount}}</td>
+                          <td>{{$finances->installments}}</td>
+                          <td>{{$finances->instal_duration}}</td>
                           <td>
                             <a href='{{route('finance_edit',$finances->id)}}' type='button' rel='tooltip' title='' class='btn btn-info btn-link btn-sm' data-original-title='Edit User'>
                               <i class='material-icons'>edit</i></a>

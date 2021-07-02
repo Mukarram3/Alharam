@@ -134,39 +134,73 @@ The above copyright notice and this permission notice shall be included in all c
 
                               </div>
 
+                              <div class="col-md-7">
+                                <div class="form-group">
+                                  <label>Tenure Year</label>
+                                  <input type="number" id="" value="{{$finance->tenure_year}}" name="tenure_year" class="form-control">
+                                </div>
+                              </div>
+                              <br>
+                              <div>
 
-                                    <div class="col-md-9">
-                                      <div class="">
-                                        <label for="">Add Advantages</label>
-                                        
+                                <span class="text-danger" id="">
 
-                                          @php
-                                              $advantage=json_decode($finance->advantage)
-                                          @endphp
-                                          @foreach ($advantage as $advantages)
-                                          <div id="another-participant1">
-                                          <input style="    margin-top: 15px;
-                                          width: 70%;" type="text" name="advantage[]" value="{{$advantages}}" class="form-controlx" placeholder=""/>
-                                          </div>
-                                          @endforeach
+                                  @error ('tenure_year'){{$message}} @enderror
+          
+                                      </span>
 
-                                        
-                                       <button class="btn-primary btn btn-md" style="margin-top: 20px;
-                                       border: rgb(158, 136, 104);
-                                       border-radius: 6px;" type="button" id="add-participant1">+ Add more</button>
-                                      </div>
-                                    </div>
-                                    <br>
-                                    <div>
+                              </div>
 
-                                      <span class="text-danger" id="">
+                              <div class="col-md-7">
+                                <div class="form-group">
+                                  <label>Total Amount</label>
+                                  <input type="text" id="" value="{{$finance->total_amount	}}" name="total_amount" class="form-control">
+                                </div>
+                              </div>
+                              <br>
+                              <div>
 
-                                        @error ('advantage[]'){{$message}} @enderror
-                
-                                            </span>
+                                <span class="text-danger" id="">
 
-                                    </div>
-                     
+                                  @error ('total_amount'){{$message}} @enderror
+          
+                                      </span>
+
+                              </div>
+
+                              <div class="col-md-7">
+                                <div class="form-group">
+                                  <label>No of Installments</label>
+                                  <input type="text" id="" value="{{$finance->installments}}" name="installment" class="form-control">
+                                </div>
+                              </div>
+                              <br>
+                              <div>
+
+                                <span class="text-danger" id="">
+
+                                  @error ('installment'){{$message}} @enderror
+          
+                                      </span>
+
+                              </div>
+
+                              <div class="col-md-7">
+                                <div class="form-group">
+                                  <label>Installment Duration</label>
+                                  <input type="text" id="" value="{{$finance->instal_duration}}" name="instal_duration" class="form-control">
+                                </div>
+                              </div>
+                              <br>
+                              <div>
+
+                                <span class="text-danger" id="">
+
+                                  @error ('instal_duration'){{$message}} @enderror
+          
+                                      </span>
+
+                              </div>
                       <div class="col-md-7">
                         <div class="form-group">
                           {{-- <a class="btn btn-primary" type="submit" name="btnadd">Add User</a> --}}

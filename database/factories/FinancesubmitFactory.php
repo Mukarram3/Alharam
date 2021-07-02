@@ -2,17 +2,17 @@
 
 namespace Database\Factories;
 
-use App\Models\Plan;
+use App\Models\financesubmit;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class PlanFactory extends Factory
+class FinancesubmitFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
      *
      * @var string
      */
-    protected $model = Plan::class;
+    protected $model = financesubmit::class;
 
     /**
      * Define the model's default state.
@@ -21,6 +21,8 @@ class PlanFactory extends Factory
      */
     public function definition()
     {
-        
+        return [
+            //
+        ];
     }
 }

@@ -24,3 +24,5 @@ Route::get('vehiclecat/index',[apiController::class,'index1'])->name('vehiclecat
 Route::post('vehicle/index',[apiController::class,'index2'])->name('vehicle_index');
 
 Route::get('finance/index',[apiController::class,'index3'])->name('finance_index');
+
+Route::post('financeuser/store',[apiController::class,'formdatstore'])->name('formdatstore');

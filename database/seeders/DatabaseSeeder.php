@@ -1,9 +1,9 @@
 <?php
 
 namespace Database\Seeders;
-
 use Illuminate\Database\Seeder;
-
+use illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 class DatabaseSeeder extends Seeder
 {
     /**
@@ -13,6 +13,27 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        \App\Models\Plan::factory(1)->create();
+
+        // DB::table('users')->insert([
+        //     'name' => 'Mukarram',
+        //     'email' => 'mukarram123786@gmail.com',
+        //     'password' => Hash::make('m12345'),
+        //     'address' => 'street 8',
+        //     'city' => 'sargodha',
+        //     'mobile' => '03066703820',
+        //     'image' => '60b2146c3ca6a.png',
+        // ]);
+
+        $this->call([
+            UserSeeder::class,
+            PlanSeeder::class,
+            VehiclecategorySeeder::class,
+            VehicletypeSeeder::class,
+            FinanceSeeder::class,
+            financesubmitSeeder::class,
+
+        ]);
+
+        
     }
 }

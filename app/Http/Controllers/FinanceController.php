@@ -45,7 +45,10 @@ class FinanceController extends Controller
             'plan_cat' => 'required',
             'title'=>'required',
             'description'=>'required',
-            
+            'tenure_year' =>'required',
+            'total_amount' =>'required',
+            'installment' => 'required',
+            'instal_duration' => 'required',
             
         ]);
 
@@ -53,7 +56,10 @@ class FinanceController extends Controller
     $admin->planId=$req->plan_cat;
     $admin->title=$req->title;
     $admin->description=$req->description;
-    $admin->advantage=json_encode($req->advantage);
+    $admin->tenure_year=$req->tenure_year;
+    $admin->total_amount=$req->total_amount;
+    $admin->installments=$req->installment;
+    $admin->instal_duration=$req->instal_duration;
     
 
     $save=$admin->save();
@@ -108,7 +114,10 @@ class FinanceController extends Controller
             'plan_cat' => 'required',
             'title'=>'required',
             'description'=>'required',
-           
+            'tenure_year' =>'required',
+            'total_amount' =>'required',
+            'installment' => 'required',
+            'instal_duration' => 'required',
             
         ]);
 
@@ -116,8 +125,10 @@ class FinanceController extends Controller
         $admin->planId=$req->plan_cat;
     $admin->title=$req->title;
     $admin->description=$req->description;
-    $admin->advantage=json_encode($req->advantage);
-   
+    $admin->tenure_year=$req->tenure_year;
+    $admin->total_amount=$req->total_amount;
+    $admin->installments=$req->installment;
+    $admin->instal_duration=$req->instal_duration;
     $save=$admin->save();
     if($save){
         

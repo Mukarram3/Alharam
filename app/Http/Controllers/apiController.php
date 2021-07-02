@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\vehiclecategory;
 use App\Models\vehicletype;
+use App\Models\financesubmit;
 use App\Models\finance;
 
 class apiController extends Controller
@@ -28,4 +29,24 @@ class apiController extends Controller
     
         return $finance;
     }
+
+    public function formdatstore(Request $req){
+
+   $table=new financesubmits();
+   $table->financeid=$req->financeid;
+   $table->mobile=$req->mobile;
+   $table->notes=$req->notes;
+   $table->username=$req->username;
+
+   $save=$table->save();
+   if($save){
+       return 'mukarram';
+   }
+   else{
+    return 'wdwfcdsscf';
+   }
+
+    }
 }
+
+
