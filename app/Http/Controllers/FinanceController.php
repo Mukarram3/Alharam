@@ -32,6 +32,14 @@ class FinanceController extends Controller
         //
     }
 
+    public function description($id){
+
+        $descr=finance::find($id);
+
+        return view('finance_mode/index',['finance' => $descr]);
+
+    }
+
     /**
      * Store a newly created resource in storage.
      *
@@ -49,7 +57,7 @@ class FinanceController extends Controller
             'total_amount' =>'required',
             'installment' => 'required',
             'instal_duration' => 'required',
-            
+
         ]);
 
         $admin=new finance();
@@ -60,13 +68,13 @@ class FinanceController extends Controller
     $admin->total_amount=$req->total_amount;
     $admin->installments=$req->installment;
     $admin->instal_duration=$req->instal_duration;
-    
+
 
     $save=$admin->save();
     if($save){
-        
+
         return redirect()->route('finance_index');
-        
+
     }
     else{
         return back()->with('fail','Smoething went wrong, try again...');
@@ -118,7 +126,7 @@ class FinanceController extends Controller
             'total_amount' =>'required',
             'installment' => 'required',
             'instal_duration' => 'required',
-            
+
         ]);
 
         $admin=finance::find($req->id);
@@ -131,9 +139,9 @@ class FinanceController extends Controller
     $admin->instal_duration=$req->instal_duration;
     $save=$admin->save();
     if($save){
-        
+
         return redirect()->route('finance_index');
-        
+
     }
     else{
         return back()->with('fail','Smoething went wrong, try again...');

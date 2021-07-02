@@ -12,9 +12,9 @@ class apiController extends Controller
 {
     public function index1()
     {
-       
+
         $vehiclecategory=vehiclecategory::all();
-       
+
         return $vehiclecategory;
     }
     public function index2(Request $req)
@@ -26,13 +26,13 @@ class apiController extends Controller
 
     public function index3(){
         $finance=finance::all();
-    
+
         return $finance;
     }
 
     public function formdatstore(Request $req){
 
-   $table=new financesubmits();
+   $table=new financesubmit();
    $table->financeid=$req->financeid;
    $table->mobile=$req->mobile;
    $table->notes=$req->notes;

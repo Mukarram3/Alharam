@@ -29,7 +29,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="stylesheet" href="{{asset('css/material-dashboard.css')}}">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link rel="stylesheet" href="{{asset('css/demo.css')}}">
-  
+
 
 </head>
 
@@ -46,26 +46,26 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title" id="exampleModalLabel">Modal title</h2>
-        
+
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
+
       </div>
       <div class="modal-body">
         <form class="pt-3" action="{{route('finance_store')}}" method="POST" enctype="multipart/form-data">
           @csrf
-          
+
           <div class="form-group">
             <select name="plan_cat" id="plan_cat">
-               
+
 
                 <option value="">Choose Plan</option>
 
                 @foreach ($plan as $plans)
                 <option value="{{$plans->id}}">{{$plans->title}}</option>
-                    
+
                 @endforeach
             </select>
-          
+
           <span class="text-danger" id="plan_cat">
 
             @error ('plan_cat'){{$message}} @enderror
@@ -127,10 +127,10 @@ The above copyright notice and this permission notice shall be included in all c
           </div>
 
           <div class="mt-3">
-            
+
             <button type="submit" class="btn btn-primary btn-sm font-weight-medium auth-form-btn">Add Finance</button>
           </div>
-          
+
         </form>
       </div>
       {{-- <div class="modal-footer">
@@ -143,14 +143,48 @@ The above copyright notice and this permission notice shall be included in all c
 
 
 
+
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2 class="modal-title" id="exampleModalLabel">Finance Description</h2>
+
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+
+        </div>
+        <div class="modal-body">
+
+
+            <div class="form-group">
+
+                @foreach ($finance as $finances)
+
+                {{$finances->description}}
+
+                @endforeach
+
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+
+
   <div class="wrapper ">
-    
+
 
     @include('../header-footer/sidebar')
 
 
     <div class="main-panel">
-      
+
     @include('../header-footer/navbar')
 
 
@@ -158,7 +192,7 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="content">
         <div class="container-fluid">
           <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position: absolute;right:44px;z-index: 1000; top: 82px;">Add Finance Mode</a>
-          
+
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -171,7 +205,7 @@ The above copyright notice and this permission notice shall be included in all c
 
                       <thead>
                         <tr>
- 
+
                           <th width="100px">Plan</th>
                           <th width="100px">Title</th>
                           <th width="50px">Description</th>
@@ -187,12 +221,12 @@ The above copyright notice and this permission notice shall be included in all c
                         @foreach ($finance as $finances)
 
                         <tr>
-                          
-                              
-                         
+
+
+
                           <td>{{$finances->hasplan->title}}</td>
                           <td>{{$finances->title}}</td>
-                          <td>{{$finances->description}}</td>
+                          <td><a class="btn text-white btn-sm btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal2" href="{{route('finance_dscr',$finances->id)}}" style="">Click Me</a></td>
                           <td>{{$finances->tenure_year}}</td>
                           <td>{{$finances->total_amount}}</td>
                           <td>{{$finances->installments}}</td>
@@ -203,7 +237,7 @@ The above copyright notice and this permission notice shall be included in all c
                               <a href='{{route('finance_destroy',$finances->id)}}' type='button' rel='tooltip' title='' class='btn btn-danger btn-link btn-sm' data-original-title='Delete User'>
                                 <i class='material-icons'>close</i>
                               <div class='ripple-container'></div></a>
-                              
+
                           </td>
 
                         </tr>
@@ -212,22 +246,22 @@ The above copyright notice and this permission notice shall be included in all c
                       </tbody>
 
 
-                    </table> 
+                    </table>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
-      
+
      @include('../header-footer/footer')
 
     </div>
   </div>
-  
+
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
@@ -317,7 +351,7 @@ The above copyright notice and this permission notice shall be included in all c
   <script src="{{asset('js/bootstrap-notify.js')}}"></script>
   <script src="{{asset('js/material-dashboard.js?v=2.1.2')}}"></script>
   <script src="{{asset('js/demo.js')}}"></script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <script>

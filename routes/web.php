@@ -42,8 +42,8 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('user/edit/{id}',[userController::class,'edit'])->name('user_edit');
     Route::post('user/index',[userController::class,'update'])->name('user_update');
     Route::get('user/delete/{id}',[userController::class,'destroy'])->name('user_destroy');
-  
-    
+
+
 
 });
 
@@ -104,5 +104,6 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('finance/delete/{id}',[FinanceController::class,'destroy'])->name('finance_destroy');
     Route::get('finance/edit/{id}',[FinanceController::class,'edit'])->name('finance_edit');
     Route::post('finance/update',[FinanceController::class,'update'])->name('finance_update');
+    Route::get('finance/description',[FinanceController::class,'description'])->name('finance_dscr');
 
 });

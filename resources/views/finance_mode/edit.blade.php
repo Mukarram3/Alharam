@@ -45,33 +45,33 @@ The above copyright notice and this permission notice shall be included in all c
 
 
   <div class="wrapper ">
-    
+
 
     @include('../header-footer/sidebar')
 
 
     <div class="main-panel">
       <!-- Navbar -->
-      
+
       @include('../header-footer/navbar')
 
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          
-          
+
+
           <div class="row">
             @if(Session::get('fail'))
-            
+
             {{Session::get('fail')}}
-            
+
             @endif
-            
+
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Edit Finance</h4>
-                 
+
                 </div>
                 <div class="card-body">
                   <form action="{{route('finance_update')}}" method="POST" enctype="multipart/form-data">
@@ -82,20 +82,20 @@ The above copyright notice and this permission notice shall be included in all c
 
                             <option value="">Choose Plan</option>
                             @foreach ($plan as $plans)
-            
-                            
+
+
                             <option value="{{$plans->id}}">{{$plans->title}}</option>
-                                
+
                             @endforeach
                         </select>
-                      
+
                     </div>
                     <div>
-                      
+
                       <span class="text-danger" id="plan_cat">
-            
+
                         @error ('plan_cat'){{$message}} @enderror
-            
+
                             </span>
 
                     </div>
@@ -112,11 +112,11 @@ The above copyright notice and this permission notice shall be included in all c
                         <span class="text-danger" id="">
 
                           @error ('title'){{$message}} @enderror
-  
+
                               </span>
 
                       </div>
-                      
+
                             <div class="col-md-7">
                                 <div class="form-group">
                                   <label>Description</label>
@@ -129,7 +129,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <span class="text-danger" id="">
 
                                   @error ('description'){{$message}} @enderror
-          
+
                                       </span>
 
                               </div>
@@ -146,7 +146,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <span class="text-danger" id="">
 
                                   @error ('tenure_year'){{$message}} @enderror
-          
+
                                       </span>
 
                               </div>
@@ -163,7 +163,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <span class="text-danger" id="">
 
                                   @error ('total_amount'){{$message}} @enderror
-          
+
                                       </span>
 
                               </div>
@@ -180,7 +180,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <span class="text-danger" id="">
 
                                   @error ('installment'){{$message}} @enderror
-          
+
                                       </span>
 
                               </div>
@@ -197,7 +197,7 @@ The above copyright notice and this permission notice shall be included in all c
                                 <span class="text-danger" id="">
 
                                   @error ('instal_duration'){{$message}} @enderror
-          
+
                                       </span>
 
                               </div>
@@ -207,14 +207,14 @@ The above copyright notice and this permission notice shall be included in all c
                           <button class="btn btn-primary" type='submit'>Update</button>
                         </div>
                       </div>
-                      
-                     
+
+
                     </div>
                   </form>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -240,7 +240,7 @@ The above copyright notice and this permission notice shall be included in all c
       <script src="{{asset('js/bootstrap-notify.js')}}"></script>
       <script src="{{asset('js/material-dashboard.js?v=2.1.2')}}"></script>
       <script src="{{asset('js/demo.js')}}"></script>
-      
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 

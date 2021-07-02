@@ -3,7 +3,9 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Str;
 class VehicletypeSeeder extends Seeder
 {
     /**
@@ -14,7 +16,7 @@ class VehicletypeSeeder extends Seeder
     public function run()
     {
         DB::table('vehicletypes')->insert([
-            'vehicleId ' => '1',
+            'vehicleId' => '1',
             'title' => 'Alto',
             'price' => '12',
             'image' => '60b88ff2a47f8.png',
@@ -26,11 +28,11 @@ class VehicletypeSeeder extends Seeder
             'transm_type' => 'Manual/ Auto Gear Shift',
             'version' => 'VX, VXR, AGS',
             'colours' => 'Cerulean Blue, Pearl Red, Graphite Gray, Silky Silver, White, Pearl Black, Sand Beige',
-            
+
         ]);
 
     DB::table('vehicletypes')->insert([
-        'vehicleId ' => '1',
+        'vehicleId' => '1',
         'title' => 'Alto',
         'price' => '12',
         'image' => '60b88ff2a47f8.png',
@@ -42,11 +44,11 @@ class VehicletypeSeeder extends Seeder
         'transm_type' => 'Manual/ Auto Gear Shift',
         'version' => 'VX, VXR, AGS',
         'colours' => 'Cerulean Blue, Pearl Red, Graphite Gray, Silky Silver, White, Pearl Black, Sand Beige',
-        
+
     ]);
 
 DB::table('vehicletypes')->insert([
-    'vehicleId ' => '2',
+    'vehicleId' => '2',
     'title' => 'Alto',
     'price' => '12',
     'image' => '60b88ff2a47f8.png',
@@ -58,12 +60,12 @@ DB::table('vehicletypes')->insert([
     'transm_type' => 'Manual/ Auto Gear Shift',
     'version' => 'VX, VXR, AGS',
     'colours' => 'Cerulean Blue, Pearl Red, Graphite Gray, Silky Silver, White, Pearl Black, Sand Beige',
-    
+
 ]);
 
 
 DB::table('vehicletypes')->insert([
-    'vehicleId ' => '3',
+    'vehicleId' => '3',
     'title' => 'Alto',
     'price' => '12',
     'image' => '60b88ff2a47f8.png',
