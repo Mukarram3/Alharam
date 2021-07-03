@@ -103,6 +103,7 @@ class FinanceController extends Controller
      */
     public function edit($id)
     {
+
         $plan=Plan::all();
         $finance=finance::find($id);
         return view('finance_mode/edit',['finance' => $finance],compact('plan'));

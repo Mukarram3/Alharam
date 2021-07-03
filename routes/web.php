@@ -7,6 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VehiclecategoryController;
 use App\Http\Controllers\VehicletypeController;
 use App\Http\Controllers\FinanceController;
+use App\Http\Controllers\apiController;
 use App\Models\vehiclecategory;
 use Database\Factories\PlanFactory;
 use Database\Factories\VehiclecategoryFactory;
@@ -104,6 +105,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('finance/delete/{id}',[FinanceController::class,'destroy'])->name('finance_destroy');
     Route::get('finance/edit/{id}',[FinanceController::class,'edit'])->name('finance_edit');
     Route::post('finance/update',[FinanceController::class,'update'])->name('finance_update');
-    Route::get('finance/description',[FinanceController::class,'description'])->name('finance_dscr');
+    Route::get('finance/description{id}',[FinanceController::class,'description'])->name('finance_dscr');
+
 
 });
