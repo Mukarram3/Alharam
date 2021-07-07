@@ -8,8 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class financesubmit extends Model
 {
     use HasFactory;
-    protected $table=['financesubmit'];
-    protected $fillable=['id','mobile','notes','username'];
+    protected $table='financesubmits';
+    protected $fillable=['id','financeid','mobile','notes','username'];
 
     public function hasfinance(){
         return $this->belongsTo(finance::class,'financeid');

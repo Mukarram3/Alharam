@@ -37,20 +37,20 @@ class PlanController extends Controller
     public function store(Request $req)
     {
 
-      
+
         $req->validate([
 
             'title'=>'required',
             'image'=>'required',
             'description'=>'required',
             'button'=>'required',
-            
-           
-    
+
+
+
         ]);
 
-        
-        
+
+
 
     $admin=new Plan();
     $admin->title=$req->title;
@@ -68,9 +68,9 @@ class PlanController extends Controller
     // $admin->image=$req->image;
     $save=$admin->save();
     if($save){
-        
+
         return redirect()->route('plans_index');
-        
+
     }
     else{
         return back()->with('fail','Smoething went wrong, try again...');
@@ -101,6 +101,13 @@ class PlanController extends Controller
         return view('plans/edit',['data' => $data]);
     }
 
+    public function description($id){
+
+        $plan=Plan::find($id);
+        return view('plans/description',['plan' => $plan]);
+
+    }
+
     /**
      * Update the specified resource in storage.
      *
@@ -116,13 +123,13 @@ class PlanController extends Controller
             'image'=>'required',
             'description'=>'required',
             'button'=>'required',
-            
-           
-    
+
+
+
         ]);
 
-        
-        
+
+
 
     $admin=Plan::find($req->id);
     $admin->title=$req->title;
@@ -140,9 +147,9 @@ class PlanController extends Controller
     // $admin->image=$req->image;
     $save=$admin->save();
     if($save){
-        
+
         return redirect()->route('plans_index');
-        
+
     }
     else{
         return back()->with('fail','Smoething went wrong, try again...');
@@ -158,12 +165,12 @@ class PlanController extends Controller
      */
     public function destroy($id)
     {
-        
+
         $plan=Plan::find($id);
         $plan->delete();
         if($plan){
             return redirect()->route('plans_index');
         }
-        
+
     }
 }

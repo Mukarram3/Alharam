@@ -29,7 +29,15 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="stylesheet" href="{{asset('css/material-dashboard.css')}}">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link rel="stylesheet" href="{{asset('css/demo.css')}}">
-  
+
+  <style>
+
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+    padding: 12px 4px;
+    text-align: center;
+}
+
+  </style>
 
 </head>
 
@@ -46,25 +54,25 @@ The above copyright notice and this permission notice shall be included in all c
     <div class="modal-content">
       <div class="modal-header">
         <h2 class="modal-title" id="exampleModalLabel">Modal title</h2>
-        
+
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        
+
       </div>
       <div class="modal-body">
         <form class="pt-3" action="{{route('product_store')}}" method="POST" enctype="multipart/form-data">
           @csrf
-          
+
           <div class="form-group">
               <select name="vehicle_cat" id="vehicle_cat">
-                  
+
 
                   <option value="">Choose Vehicle Type</option>
                   @foreach ($vehiclecategory as $vehicle)
                   <option value="{{$vehicle->id}}">{{$vehicle->title}}</option>
-                      
+
                   @endforeach
               </select>
-            
+
             <span class="text-danger" id="vehicle_cat">
 
               @error ('vehicle_cat'){{$message}} @enderror
@@ -106,9 +114,9 @@ The above copyright notice and this permission notice shall be included in all c
 
                   </span>
           </div>
-          
-          
-          
+
+
+
           <div class="form-group">
             <input type="text" name="engine" class="form-control form-control-lg" id="" placeholder="Engine Capacity">
             <span class="text-danger" id="engine">
@@ -165,14 +173,14 @@ The above copyright notice and this permission notice shall be included in all c
 
                   </span>
           </div>
-         
-       
-          
+
+
+
           <div class="mt-3">
-            
+
             <button type="submit" class="btn btn-primary btn-sm font-weight-medium auth-form-btn">Add Vehicle</button>
           </div>
-          
+
         </form>
       </div>
       {{-- <div class="modal-footer">
@@ -186,13 +194,13 @@ The above copyright notice and this permission notice shall be included in all c
 
 
   <div class="wrapper ">
-    
+
 
     @include('../header-footer/sidebar')
 
 
     <div class="main-panel">
-      
+
     @include('../header-footer/navbar')
 
 
@@ -200,7 +208,7 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="content">
         <div class="container-fluid">
           <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position: absolute;right:44px;z-index: 1000; top: 82px;">Add Vehicle</a>
-          
+
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -213,22 +221,22 @@ The above copyright notice and this permission notice shall be included in all c
 
                       <thead>
                         <tr>
- 
+
                           {{-- <th width="100px">Vehicle Category</th> --}}
-                          <th width="100px">Title</th>
-                          <th width="100px">price(Lac)</th>
+                          <th width="30px">Title</th>
+                          <th width="10px">price(Lac)</th>
                           <th width="50px">Image</th>
-                          <th width="400px">Description</th>
-                          <th width="100px">Engine capacity</th>
-                          <th width="100px">Seat capacity</th>
-                          <th width="100px">Doors</th>
-                          <th width="100px">Fuel Type</th>
-                          <th width="100px">Transmission type</th>
-                          <th width="100px">version</th>
-                          <th width="100px">Colors available</th>
-                         
-                          
-                          <th width="100px" style="text-align: center">Action</th>
+                          <th width="300px">Description</th>
+                          <th width="30px">Engine capacity</th>
+                          <th width="30px">Seat capacity</th>
+                          <th width="30px">Doors</th>
+                          <th width="30px">Fuel Type</th>
+                          <th width="50px">Transmission type</th>
+                          <th width="50px">version</th>
+                          <th width="300px">Colors available</th>
+
+
+                          <th width="40px" style="text-align: center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
@@ -236,14 +244,17 @@ The above copyright notice and this permission notice shall be included in all c
                         @foreach ($vehicletype as $vehicletypes)
 
                         <tr>
-                          
-                              
-                         
+
+
+
                           {{-- <td>{{$vehicletypes->hasvehiclecategory->title}}</td> --}}
                           <td>{{$vehicletypes->title}}</td>
                           <td>{{$vehicletypes->price}}</td>
-                          <td><img width="100px" height="100px" src="{{asset('storage/images/'.$vehicletypes->image)}}" alt="loading"></td>
-                          <td style="width: 300px;">{{$vehicletypes->description}}</td>
+                          <td><img width="50px" height="50px" src="{{asset('storage/images/'.$vehicletypes->image)}}" alt="loading"></td>
+                          <td><a class="btn text-white btn-sm btn-success"
+
+                     href="{{route('vehicle_dscr',$vehicletypes->id)}}"
+                    style="">Click Me</a></td>
                           <td>{{$vehicletypes->engine_cap}}</td>
                           <td>{{$vehicletypes->seat_cap}}</td>
                           <td>{{$vehicletypes->doors}}</td>
@@ -251,14 +262,14 @@ The above copyright notice and this permission notice shall be included in all c
                           <td>{{$vehicletypes->transm_type}}</td>
                           <td>{{$vehicletypes->version}}</td>
                           <td>{{$vehicletypes->colours}}</td>
-                          
+
                           <td>
                             <a href='{{route('vehicle_edit',$vehicletypes->id)}}' type='button' rel='tooltip' title='' class='btn btn-info btn-link btn-sm' data-original-title='Edit User'>
                               <i class='material-icons'>edit</i></a>
                               <a href='{{route('vehicle_destroy',$vehicletypes->id)}}' type='button' rel='tooltip' title='' class='btn btn-danger btn-link btn-sm' data-original-title='Delete User'>
                                 <i class='material-icons'>close</i>
                               <div class='ripple-container'></div></a>
-                              
+
                           </td>
 
                         </tr>
@@ -267,22 +278,22 @@ The above copyright notice and this permission notice shall be included in all c
                       </tbody>
 
 
-                    </table> 
+                    </table>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
-      
+
      @include('../header-footer/footer')
 
     </div>
   </div>
-  
+
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
@@ -372,7 +383,7 @@ The above copyright notice and this permission notice shall be included in all c
   <script src="{{asset('js/bootstrap-notify.js')}}"></script>
   <script src="{{asset('js/material-dashboard.js?v=2.1.2')}}"></script>
   <script src="{{asset('js/demo.js')}}"></script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <script>

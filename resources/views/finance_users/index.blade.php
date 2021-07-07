@@ -41,7 +41,7 @@ The above copyright notice and this permission notice shall be included in all c
 
 
 <!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+{{-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -51,7 +51,7 @@ The above copyright notice and this permission notice shall be included in all c
 
       </div>
       <div class="modal-body">
-        <form class="pt-3" action="{{route('finance_store')}}" method="POST" enctype="multipart/form-data">
+        <form class="pt-3" action="{{route('vehiclecategory_store')}}" method="POST" enctype="multipart/form-data">
           @csrf
 
           <div class="form-group">
@@ -81,99 +81,41 @@ The above copyright notice and this permission notice shall be included in all c
                   </span>
           </div>
 
-          <div class="form-group">
-            <input type="text" name="description" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Description">
-            <span class="text-danger" id="description">
+          <div class="col-md-4">
+            <div class="">
+              <label for="">Image</label>
+              <input type="file" name="image" class="btn btn-fill btn-success">
+            </div>
+            <span class="text-danger" id="image">
 
-              @error ('description'){{$message}} @enderror
+              @error ('image'){{$message}} @enderror
 
-                  </span>
-          </div>
-
-          <div class="form-group">
-            <input type="number" name="tenure_year" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="tenure_year">
-            <span class="text-danger" id="tenure_year">
-
-              @error ('tenure_year'){{$message}} @enderror
-
-                  </span>
-          </div>
-
-          <div class="form-group">
-            <input type="number" name="total_amount" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="total_amount">
-            <span class="text-danger" id="total_amount">
-
-              @error ('total_amount'){{$message}} @enderror
-
-                  </span>
-          </div>
-
-          <div class="form-group">
-            <input type="number" name="installment" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="installment">
-            <span class="text-danger" id="installment">
-
-              @error ('installment'){{$message}} @enderror
-
-                  </span>
-          </div>
-
-          <div class="form-group">
-            <input type="number" name="instal_duration" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="instal_duration">
-            <span class="text-danger" id="instal_duration">
-
-              @error ('instal_duration'){{$message}} @enderror
-
-                  </span>
-          </div>
-
-          <div class="mt-3">
-
-            <button type="submit" class="btn btn-primary btn-sm font-weight-medium auth-form-btn">Add Finance</button>
-          </div>
-
-        </form>
-      </div>
-      {{-- <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div> --}}
-    </div>
-  </div>
+            </span>
 </div>
 
 
 
 
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModal2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h2 class="modal-title" id="exampleModalLabel">Finance Description</h2>
-
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-
-        </div>
-        <div class="modal-body">
 
 
-            <div class="form-group">
 
-                {{-- @foreach ($finance as $finances) --}}
 
-                {{-- {{$financedescr}} --}}
 
-                {{-- @endforeach --}}
+          <div class="mt-3">
 
+            <button type="submit" class="btn btn-primary btn-sm font-weight-medium auth-form-btn">Add Category</button>
           </div>
 
-        </div>
-
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
-
+</div> --}}
 
 
 
@@ -191,13 +133,13 @@ The above copyright notice and this permission notice shall be included in all c
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position: absolute;right:44px;z-index: 1000; top: 82px;">Add Finance Mode</a>
+          <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position: absolute;right:44px;z-index: 1000; top: 82px;">Add Vehicle Category</a>
 
           <div class="row">
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Finance Mode</h4>
+                  <h4 class="card-title">Vehicle Category</h4>
                 </div>
                 <div class="card-body">
                   <div class="table-responsive">
@@ -206,41 +148,32 @@ The above copyright notice and this permission notice shall be included in all c
                       <thead>
                         <tr>
 
-                          <th width="100px">Plan</th>
-                          <th width="100px">Title</th>
-                          <th width="50px">Description</th>
-                          <th width="100px">Tenure Years</th>
-                          <th width="100px">Total Amount</th>
-                          <th width="100px">No of Installment</th>
-                          <th width="100px">Installment Duration</th>
+                          <th width="100px">Finance</th>
+                          <th width="100px">Mobile No</th>
+                          <th width="50px">Notes</th>
+                          <th width="50px">Username</th>
                           <th width="100px" style="text-align: center">Action</th>
                         </tr>
                       </thead>
                       <tbody>
 
-                        @foreach ($finance as $finances)
+                        @foreach ($data as $data2)
 
                         <tr>
 
 
+                          <td>{{$data2->hasfinance->title}}</td>
+                          <td>{{$data2->mobile}}</td>
+                          <td>{{$data2->notes}}</td>
+                          <td>{{$data2->username}}</td>
 
-                          <td>{{$finances->hasplan->title}}</td>
-                          <td>{{$finances->title}}</td>
-                          <td><a class="btn text-white btn-sm btn-success"
 
-                            {{-- href="{{route('finance_dscr',$finances->id)}}"
-                    data-bs-toggle="modal" data-bs-target="#exampleModal2"
-                     --}}
-                     href="{{route('finance_dscr1',$finances->id)}}"
-                    style="">Click Me</a></td>
-                          <td>{{$finances->tenure_year}}</td>
-                          <td>{{$finances->total_amount}}</td>
-                          <td>{{$finances->installments}}</td>
-                          <td>{{$finances->instal_duration}}</td>
+
+
                           <td>
-                            <a href='{{route('finance_edit',$finances->id)}}' type='button' rel='tooltip' title='' class='btn btn-info btn-link btn-sm' data-original-title='Edit User'>
+                            <a href='{{route('finance_user_edit',$data2->id)}}' type='button' rel='tooltip' title='' class='btn btn-info btn-link btn-sm' data-original-title='Edit User'>
                               <i class='material-icons'>edit</i></a>
-                              <a href='{{route('finance_destroy',$finances->id)}}' type='button' rel='tooltip' title='' class='btn btn-danger btn-link btn-sm' data-original-title='Delete User'>
+                              <a href='{{route('finance_user_destroy',$data2->id)}}' type='button' rel='tooltip' title='' class='btn btn-danger btn-link btn-sm' data-original-title='Delete User'>
                                 <i class='material-icons'>close</i>
                               <div class='ripple-container'></div></a>
 
@@ -363,26 +296,6 @@ The above copyright notice and this permission notice shall be included in all c
   <script>
     $(document).ready(function() {
       $().ready(function() {
-
-        $("#add-participant1").click(function(){
-
-var $div = $('div[id^="another-participant1"]:last');
-
-var num = parseInt( $div.prop("id").match(/\d+/g), 10 ) +1;
-
-var $klon = $div.clone().prop('id', 'another-participant1'+num );
-
-$klon.find('input').each(function() {
-  this.value= "";
-  let name_number = this.name.match(/\d+/);
-  name_number++;
-  this.name = this.name.replace(/\[[0-9]\]+/, '['+name_number+']')
-});
-
-$div.after( $klon );
-
-});
-
         $sidebar = $('.sidebar');
 
         $sidebar_img_container = $sidebar.find('.sidebar-background');

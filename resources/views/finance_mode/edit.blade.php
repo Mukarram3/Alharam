@@ -78,7 +78,11 @@ The above copyright notice and this permission notice shall be included in all c
                       @csrf
                       <input type="hidden" value="{{$finance->id}}" name="id" id="">
                       <div class="form-group">
-                        <select name="plan_cat" id="plan_cat">
+                        <select style='background: lightcyan;
+                        width: 150px;
+                        padding: 3px 9px;
+                        color: brown;
+                        border: none;' name="plan_cat" id="plan_cat">
 
                             <option value="">Choose Plan</option>
                             @foreach ($plan as $plans)

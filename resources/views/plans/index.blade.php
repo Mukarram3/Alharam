@@ -29,7 +29,7 @@ The above copyright notice and this permission notice shall be included in all c
   <link rel="stylesheet" href="{{asset('css/material-dashboard.css')}}">
   <!-- CSS Just for demo purpose, don't include it in your project -->
   <link rel="stylesheet" href="{{asset('css/demo.css')}}">
-  
+
 
 </head>
 
@@ -51,7 +51,7 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="modal-body">
         <form class="pt-3" action="{{route('plans_store')}}" method="POST" enctype="multipart/form-data">
           @csrf
-          
+
           <div class="form-group">
             <input type="text" name="title" class="form-control form-control-lg" id="exampleInputUsername1" placeholder="Title">
             <span class="text-danger" id="title">
@@ -68,9 +68,9 @@ The above copyright notice and this permission notice shall be included in all c
 
                   </span>
           </div>
-          
-          
-          
+
+
+
           <div class="form-group">
             <input type="text" name="button" class="form-control form-control-lg" id="" placeholder="Button">
             <span class="text-danger" id="mobile">
@@ -79,7 +79,7 @@ The above copyright notice and this permission notice shall be included in all c
 
                   </span>
           </div>
-       
+
           <div class="col-md-4">
                         <div class="">
                           <label for="">Image</label>
@@ -88,14 +88,14 @@ The above copyright notice and this permission notice shall be included in all c
                         <span class="text-danger" id="image">
 
                           @error ('image'){{$message}} @enderror
-            
+
                         </span>
             </div>
           <div class="mt-3">
-            
+
             <button type="submit" class="btn btn-primary btn-sm font-weight-medium auth-form-btn">Add Easy Step Plans</button>
           </div>
-          
+
         </form>
       </div>
       {{-- <div class="modal-footer">
@@ -109,13 +109,13 @@ The above copyright notice and this permission notice shall be included in all c
 
 
   <div class="wrapper ">
-    
+
 
     @include('../header-footer/sidebar')
 
 
     <div class="main-panel">
-      
+
     @include('../header-footer/navbar')
 
 
@@ -123,7 +123,7 @@ The above copyright notice and this permission notice shall be included in all c
       <div class="content">
         <div class="container-fluid">
           <a class="btn btn-success" data-bs-toggle="modal" data-bs-target="#exampleModal"  style="position: absolute;right:44px;z-index: 1000; top: 82px;">Add Plans</a>
-          
+
           <div class="row">
             <div class="col-md-12">
               <div class="card">
@@ -138,12 +138,12 @@ The above copyright notice and this permission notice shall be included in all c
                         <tr>
                           <th width="100px">Id</th>
                           <th width="100px">Title</th>
-                          
+
                           <th width="100px">Image</th>
                           <th width="100px">Description</th>
                           <th width="100px">Button Name</th>
-                         
-                          
+
+
                           <th width="100px" style="text-align: center">Action</th>
                         </tr>
                       </thead>
@@ -152,22 +152,25 @@ The above copyright notice and this permission notice shall be included in all c
                         @foreach ($plan as $plans)
 
                         <tr>
-                          
-                              
-                         
+
+                            plan_dscr
+
                           <td>{{$plans->id}}</td>
                           <td>{{$plans->title}}</td>
                           <td><img width="100px" height="100px" src="{{asset('storage/images/'.$plans->image)}}" alt="loading"></td>
-                          <td>{{$plans->description}}</td>
+                          <td><a class="btn text-white btn-sm btn-success"
+
+                            href="{{route('plan_dscr',$plans->id)}}"
+                           style="">Click Me</a></td>
                           <td>{{$plans->btn_name}}</td>
-                          
+
                           <td>
                             <a href='{{route('plan_edit',$plans->id)}}' type='button' rel='tooltip' title='' class='btn btn-info btn-link btn-sm' data-original-title='Edit User'>
                               <i class='material-icons'>edit</i></a>
                               <a href='{{route('plan_destroy',$plans->id)}}' type='button' rel='tooltip' title='' class='btn btn-danger btn-link btn-sm' data-original-title='Delete User'>
                                 <i class='material-icons'>close</i>
                               <div class='ripple-container'></div></a>
-                              
+
                           </td>
 
                         </tr>
@@ -176,22 +179,22 @@ The above copyright notice and this permission notice shall be included in all c
                       </tbody>
 
 
-                    </table> 
+                    </table>
                     </table>
                   </div>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
-      
+
      @include('../header-footer/footer')
 
     </div>
   </div>
-  
+
   <div class="fixed-plugin">
     <div class="dropdown show-dropdown">
       <a href="#" data-toggle="dropdown">
@@ -281,7 +284,7 @@ The above copyright notice and this permission notice shall be included in all c
   <script src="{{asset('js/bootstrap-notify.js')}}"></script>
   <script src="{{asset('js/material-dashboard.js?v=2.1.2')}}"></script>
   <script src="{{asset('js/demo.js')}}"></script>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
   <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
   <script>

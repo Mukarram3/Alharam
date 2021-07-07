@@ -52,13 +52,13 @@ class VehicletypeController extends Controller
             'transmission'=>'required',
             'versions'=>'required',
             'colors'=>'required',
-            
-           
-    
+
+
+
         ]);
 
-        
-        
+
+
 
     $admin=new vehicletype();
     $admin->vehicleId=$req->vehicle_cat;
@@ -81,13 +81,13 @@ class VehicletypeController extends Controller
     $admin->version=$req->versions;
     $admin->colours=$req->colors;
 
-    
+
     // $admin->image=$req->image;
     $save=$admin->save();
     if($save){
-        
+
         return redirect()->route('vehicle_index');
-        
+
     }
     else{
         return back()->with('fail','Smoething went wrong, try again...');
@@ -114,11 +114,20 @@ class VehicletypeController extends Controller
      */
     public function edit($id)
     {
-      
+
         $data=vehiclecategory::all();
-        
+
         $vehicle=vehicletype::find($id);
+
         return view('vehicle/edit',compact('data'),['vehicle' => $vehicle]);
+    }
+
+    public function description($id){
+
+        $vehicle=vehicletype::find($id);
+
+        return view('vehicle/description',['vehicletypes' => $vehicle->description,'vehicle' => $vehicle]);
+
     }
 
     /**
@@ -144,9 +153,9 @@ class VehicletypeController extends Controller
             'transmission'=>'required',
             'versions'=>'required',
             'colours'=>'required',
-            
-           
-    
+
+
+
         ]);
 
         $admin=vehicletype::find($req->id);
@@ -169,18 +178,18 @@ class VehicletypeController extends Controller
         $admin->transm_type=$req->transmission;
         $admin->version=$req->versions;
         $admin->colours=$req->colours;
-    
-        
+
+
         // $admin->image=$req->image;
         $save=$admin->save();
         if($save){
-            
+
             return redirect()->route('vehicle_index');
-            
+
         }
         else{
             return back()->with('fail','Smoething went wrong, try again...');
-    
+
         }
 
 

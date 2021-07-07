@@ -7,7 +7,7 @@ use App\Http\Controllers\ProductController;
 use App\Http\Controllers\VehiclecategoryController;
 use App\Http\Controllers\VehicletypeController;
 use App\Http\Controllers\FinanceController;
-use App\Http\Controllers\apiController;
+use App\Http\Controllers\FinancesubmitController;
 use App\Models\vehiclecategory;
 use Database\Factories\PlanFactory;
 use Database\Factories\VehiclecategoryFactory;
@@ -26,6 +26,11 @@ use Database\Factories\VehiclecategoryFactory;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/sami', function () {
+    return view('sami');
+});
+
 
 Route::get('user/signup',[userController::class,'create'])->name('signup_page');
 Route::post('user/signup',[userController::class,'store'])->name('user_store');
@@ -58,6 +63,7 @@ Route::group(['middleware' => 'auth'],function(){
     Route::get('plan/delete/{id}',[PlanController::class,'destroy'])->name('plan_destroy');
     Route::get('plan/edit/{id}',[PlanController::class,'edit'])->name('plan_edit');
     Route::post('plan/update',[PlanController::class,'update'])->name('plan_update');
+    Route::get('plan/description/{id}',[PlanController::class,'description'])->name('plan_dscr');
 
 });
 
@@ -90,6 +96,7 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('vehicle/delete/{id}',[VehicletypeController::class,'destroy'])->name('vehicle_destroy');
     Route::get('vehicle/edit/{id}',[VehicletypeController::class,'edit'])->name('vehicle_edit');
     Route::post('vehicle/update',[VehicletypeController::class,'update'])->name('vehicle_update');
+    Route::get('vehicle/description/{id}',[VehicletypeController::class,'description'])->name('vehicle_dscr');
 
 });
 
@@ -105,7 +112,23 @@ Route::group(['middleware' => 'auth'], function(){
     Route::get('finance/delete/{id}',[FinanceController::class,'destroy'])->name('finance_destroy');
     Route::get('finance/edit/{id}',[FinanceController::class,'edit'])->name('finance_edit');
     Route::post('finance/update',[FinanceController::class,'update'])->name('finance_update');
-    Route::get('finance/description{id}',[FinanceController::class,'description'])->name('finance_dscr');
+    Route::get('finance/description1/{id}',[FinanceController::class,'description1'])->name('finance_dscr1');
+
+
 
 
 });
+
+
+//                    finance user data
+
+
+Route::group(['middleware' => 'auth'], function(){
+
+    Route::get('finance_user/index',[FinancesubmitController::class,'index'])->name('finance_user_index');
+    Route::get('finance_user/delete/{id}',[FinancesubmitController::class,'destroy'])->name('finance_user_destroy');
+    Route::get('finance_user/edit/{id}',[FinancesubmitController::class,'edit'])->name('finance_user_edit');
+    Route::post('finance_user/update',[FinancesubmitController::class,'update'])->name('finance_user_update');
+
+});
+

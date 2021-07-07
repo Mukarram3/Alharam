@@ -33,15 +33,14 @@ class apiController extends Controller
     public function formdatstore(Request $req){
 
 
-        $admin=new financesubmit();
+   $admin=new financesubmit();
    $admin->financeid=$req['financeid'];
-
    $admin->mobile=$req['mobile'];
    $admin->notes=$req['notes'];
    $admin->username=$req['username'];
-
+//    return $admin;
    $save=$admin->save();
-   return $save;
+//    return $save;
    if($save){
        return 'mukarram';
    }

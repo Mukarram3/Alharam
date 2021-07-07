@@ -45,53 +45,57 @@ The above copyright notice and this permission notice shall be included in all c
 
 
   <div class="wrapper ">
-    
+
 
     @include('../header-footer/sidebar')
 
 
     <div class="main-panel">
       <!-- Navbar -->
-      
+
       @include('../header-footer/navbar')
 
       <!-- End Navbar -->
       <div class="content">
         <div class="container-fluid">
-          
-          
+
+
           <div class="row">
             @if(Session::get('fail'))
-            
+
             {{Session::get('fail')}}
-            
+
             @endif
-            
+
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
                   <h4 class="card-title">Edit Vehicle</h4>
-                 
+
                 </div>
                 <div class="card-body">
                   <form action="{{route('vehicle_update')}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" value="{{$vehicle->id}}" name="id" id="">
                       <div class="form-group">
-                        <select name="plan" id="plan">
-                            
-            
+                        <select style='background: lightcyan;
+                        width: 150px;
+                        padding: 3px 9px;
+                        color: brown;
+                        border: none;' name="plan" id="plan">
+
+
                             <option value="">Choose Vehicle Category</option>
                             @foreach ($data as $data2)
                             <option value="{{$data2->id}}">{{$data2->title}}</option>
-                                
+
                             @endforeach
                         </select>
-                      
+
                       <span class="text-danger" id="plan">
-            
+
                         @error ('plan'){{$message}} @enderror
-            
+
                             </span>
                     </div>
                     <div class="row">
@@ -113,16 +117,16 @@ The above copyright notice and this permission notice shall be included in all c
                                 </div>
                      </div>
                          <span class="text-danger" id="">
-        
+
                          @error ('price'){{$message}} @enderror
-        
+
                        </span>
                        <div class="col-md-6">
                         <div class="">
                           <label for="">Image</label>
                           <input type="file" name="image" class="btn btn-fill btn-success">
                         </div>
-                        
+
                       </div>
                       <br>
                       <span class="text-danger" id="">
@@ -137,9 +141,9 @@ The above copyright notice and this permission notice shall be included in all c
                              </div>
                      </div>
                      <span class="text-danger" id="">
-                
+
                          @error ('description'){{$message}} @enderror
-                
+
                           </span>
                          <div class="col-md-7">
                             <div class="form-group">
@@ -148,9 +152,9 @@ The above copyright notice and this permission notice shall be included in all c
                                                 </div>
                              </div>
                              <span class="text-danger" id="">
-                        
+
                               @error ('engine'){{$message}} @enderror
-                        
+
                                  </span>
                      <div class="col-md-7">
                         <div class="form-group">
@@ -163,7 +167,7 @@ The above copyright notice and this permission notice shall be included in all c
                         @error ('seat'){{$message}} @enderror
 
                             </span>
-                            
+
                                     <div class="col-md-7">
                                         <div class="form-group">
                                            <label>Doors</label>
@@ -171,11 +175,11 @@ The above copyright notice and this permission notice shall be included in all c
                                                   </div>
                                        </div>
                                            <span class="text-danger" id="">
-                          
+
                                            @error ('doors'){{$message}} @enderror
-                          
+
                                      </span>
-                
+
                                      <div class="col-md-7">
                                         <div class="form-group">
                                            <label>Fuel Type</label>
@@ -183,11 +187,11 @@ The above copyright notice and this permission notice shall be included in all c
                                                   </div>
                                        </div>
                                            <span class="text-danger" id="">
-                          
+
                                            @error ('fuel'){{$message}} @enderror
-                          
-                                         </span>                
-                   
+
+                                         </span>
+
                                          <div class="col-md-7">
                                             <div class="form-group">
                                                <label>Transmission Type</label>
@@ -195,9 +199,9 @@ The above copyright notice and this permission notice shall be included in all c
                                                       </div>
                                            </div>
                                                <span class="text-danger" id="">
-                              
+
                                                @error ('transmission'){{$message}} @enderror
-                              
+
                                              </span>
                                              <div class="col-md-7">
                                                 <div class="form-group">
@@ -206,10 +210,10 @@ The above copyright notice and this permission notice shall be included in all c
                                                           </div>
                                                </div>
                                                    <span class="text-danger" id="">
-                                  
+
                                                    @error ('versions'){{$message}} @enderror
-                                  
-                                                 </span> 
+
+                                                 </span>
                                                  <div class="col-md-7">
                                                     <div class="form-group">
                                                        <label>Colours available</label>
@@ -217,25 +221,25 @@ The above copyright notice and this permission notice shall be included in all c
                                                               </div>
                                                    </div>
                                                        <span class="text-danger" id="">
-                                      
+
                                                        @error ('colours'){{$message}} @enderror
-                                      
-                                                     </span>                       
-                                         
+
+                                                     </span>
+
                       <div class="col-md-7">
                         <div class="form-group">
                           {{-- <a class="btn btn-primary" type="submit" name="btnadd">Add User</a> --}}
                           <button class="btn btn-primary" type='submit'>Update</button>
                         </div>
                       </div>
-                      
-                     
+
+
                     </div>
                   </form>
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>
       </div>
@@ -261,7 +265,7 @@ The above copyright notice and this permission notice shall be included in all c
       <script src="{{asset('js/bootstrap-notify.js')}}"></script>
       <script src="{{asset('js/material-dashboard.js?v=2.1.2')}}"></script>
       <script src="{{asset('js/demo.js')}}"></script>
-      
+
       <script src="https://cdnjs.cloudflare.com/ajax/libs/core-js/2.4.1/core.js"></script>
       <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_KEY_HERE"></script>
 

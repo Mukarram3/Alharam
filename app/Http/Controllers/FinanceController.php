@@ -5,8 +5,9 @@ namespace App\Http\Controllers;
 use App\Models\finance;
 use App\Models\Plan;
 use App\Models\vehiclecategory;
-// use App\Models\finance;
+use App\Models\financesubmit;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 
 class FinanceController extends Controller
 {
@@ -17,6 +18,7 @@ class FinanceController extends Controller
      */
     public function index()
     {
+
         $finance=finance::with('hasplan')->get();
         $plan=Plan::all();
         return view('finance_mode/index',compact('finance','plan'));
@@ -32,13 +34,16 @@ class FinanceController extends Controller
         //
     }
 
-    public function description($id){
+    public function description1($id){
 
-        $descr=finance::find($id);
 
-        return view('finance_mode/index',['finance' => $descr]);
+
+        $finance=finance::find($id);
+        return view('finance_mode/description',['finance' => $finance]);
+
 
     }
+
 
     /**
      * Store a newly created resource in storage.

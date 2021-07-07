@@ -22,8 +22,7 @@ class UserSeeder extends Seeder
             'address' => 'street 8',
             'city' => 'sargodha',
             'mobile' => '03066703820',
-            'image' => '60b5d6f5ee0b6.png',
-
+            'image' => '60c332f2a26ed.jpeg',
         ]);
     }
 }

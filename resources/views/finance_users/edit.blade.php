@@ -70,61 +70,71 @@ The above copyright notice and this permission notice shall be included in all c
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header card-header-primary">
-                  <h4 class="card-title">Edit Category</h4>
+                  <h4 class="card-title">Edit Finance User</h4>
 
                 </div>
                 <div class="card-body">
-                  <form action="{{route('vehiclecat_update')}}" method="POST" enctype="multipart/form-data">
+                  <form action="{{route('finance_user_update')}}" method="POST" enctype="multipart/form-data">
                       @csrf
                       <input type="hidden" value="{{$data->id}}" name="id" id="">
                       <div class="form-group">
-                        <select style='background: lightcyan;
+                        <select name="finance" style='background: lightcyan;
                         width: 150px;
                         padding: 3px 9px;
                         color: brown;
-                        border: none;' name="plan_cat" id="plan_cat">
+                        border: none;' id="finance">
 
-                          <option value="">Choose Plan</option>
-                            @foreach ($plan as $plans)
+                          <option value="">Choose Finance</option>
+                            @foreach ($finance as $finances)
 
 
-                            <option value="{{$plans->id}}">{{$plans->title}}</option>
+                            <option value="{{$finances->id}}">{{$finances->title}}</option>
 
                             @endforeach
                         </select>
 
-                      <span class="text-danger" id="plan_cat">
+                      <span class="text-danger" id="finance">
 
-                        @error ('plan_cat'){{$message}} @enderror
+                        @error ('finance'){{$message}} @enderror
 
                             </span>
                     </div>
                     <div class="row">
                       <div class="col-md-7">
                         <div class="form-group">
-                          <label>Title</label>
-                          <input type="text" id="" value="{{$data->title}}" name="title" class="form-control">
+                          <label>Mobile No</label>
+                          <input type="text" id="" value="{{$data->mobile}}" name="mobile" class="form-control">
                         </div>
                       </div>
                       <span class="text-danger" id="">
 
-                        @error ('title'){{$message}} @enderror
+                        @error ('mobile'){{$message}} @enderror
 
                             </span>
-                            <div class="col-md-6">
-                                <div class="">
-                                  <label for="">Image</label>
-                                  <input type="file" name="image" class="btn btn-fill btn-success">
-                                </div>
 
+                            <div class="col-md-7">
+                                <div class="form-group">
+                                  <label>Notes</label>
+                                  <input type="text" id="" value="{{$data->notes}}" name="notes" class="form-control">
+                                </div>
                               </div>
-                              <br>
                               <span class="text-danger" id="">
 
-                                @error ('image'){{$message}} @enderror
+                                @error ('notes'){{$message}} @enderror
 
                                     </span>
 
+                                    <div class="col-md-7">
+                                        <div class="form-group">
+                                          <label>User Name</label>
+                                          <input type="text" id="" value="{{$data->username}}" name="name" class="form-control">
+                                        </div>
+                                      </div>
+                                      <span class="text-danger" id="">
+
+                                        @error ('name'){{$message}} @enderror
+
+                                            </span>
 
                       <div class="col-md-7">
                         <div class="form-group">

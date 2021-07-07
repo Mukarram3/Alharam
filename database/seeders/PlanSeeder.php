@@ -16,13 +16,13 @@ class PlanSeeder extends Seeder
     {
         DB::table('plans')->insert([
             'title' => 'Select Your Suzuki',
-            'image' => '60b5d6f5ee0b6.png',
-            'description' => ('Let us know which type of financing you want'),
+            'image' => '60c39f4fe8395.png',
+            'description' => ('Just select your desired Suzuki vehicle which you want to finance from our wide range of latest contemporary model'),
             'btn_name' => 'Select Suzuki',
         ]);
         DB::table('plans')->insert([
             'title' => 'Mode of Finance',
-            'image' => '60b5d6f5ee0b6.png',
+            'image' => '60c3338caaa9f.png',
             'description' => ('Let us know which type of financing you want'),
             'btn_name' => 'Select Mode Of Finance',
         ]);

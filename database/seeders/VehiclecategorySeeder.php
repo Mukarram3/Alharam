@@ -17,23 +17,23 @@ class VehiclecategorySeeder extends Seeder
     {
         DB::table('vehiclecategories')->insert([
             'planId' => '1',
-            'title' => 'Alto',
-            'image' => '60b88ff2a47f8.png',
+            'title' => 'Bolan',
+            'image' => '60c3350340a1b.jpg',
         ]);
         DB::table('vehiclecategories')->insert([
-            'planId' => '2',
+            'planId' => '1',
             'title' => 'Alto',
-            'image' => '60b88ff2a47f8.png',
+            'image' => '60c3355db3638.png',
         ]);
         DB::table('vehiclecategories')->insert([
             'planId' => '1',
             'title' => 'Swift',
-            'image' => '60b88ff2a47f8.png',
+            'image' => '60c3358a80519.jpg',
         ]);
         DB::table('vehiclecategories')->insert([
             'planId' => '1',
             'title' => 'Jimny',
-            'image' => '60b88ff2a47f8.png',
+            'image' => '60c335a76d432.jpg',
         ]);
     }
 }
